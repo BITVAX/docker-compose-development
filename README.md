@@ -35,6 +35,8 @@ Before continuing you must have the following installed and working correctly:
  - [Docker][1]
  - [Docker-compose][2] (**1.12.0** or above)
 
+If you are on Linux, you **must** follow these steps first; [Docker Linux Post install](https://docs.docker.com/engine/install/linux-postinstall/)
+
 **OSX users** should also install:
 
  - [Docker Sync][3] and its dependencies
@@ -68,7 +70,7 @@ Make sure that you have the prerequisites installed and running correctly before
 ## 1). Configure your environment
  1. Clone this repository:
 ```
-git clone git@github.com:JeroenBoersma/docker-compose-development.git development
+git clone git@github.com:JeroenBoersma/docker-compose-development.git development && cd development
 ```
  2. Run `bin/dev setup`
 This will automaticly create a root user with a random password and adds your user with restricted rights.

@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  opensearch:
+    image: opensearchproject/opensearch
+    environment:
+      - "discovery.type=single-node"
+      - "plugins.security.disabled=true"
+    network_mode: bridge
+
+  php56:
+    links:
+      - opensearch
+  php70:
+    links:
+      - opensearch
+  php71:
+    links:
+      - opensearch
+  php72:
+    links:
+      - opensearch
+  php73:
+    links:
+      - opensearch
+  php74:
+    links:
+      - opensearch
+  php80:
+    links:
+      - opensearch
+  php81:
+    links:
+      - opensearch
+

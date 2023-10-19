@@ -21,7 +21,7 @@ setup() {
         echo 'Starting regular database user, waiting for db to become ready';
         ./${DEV_SELF} up db;
         while true; do
-            ./$DEV_SELF logs db 2>&1 | grep 'port: 3306  Percona' > /dev/null && break;
+            ./$DEV_SELF logs db 2>&1 | grep 'port: 3306 ' > /dev/null && break;
             echo -n '.';
             sleep 1;
         done

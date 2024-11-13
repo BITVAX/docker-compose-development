@@ -12,7 +12,7 @@ mysql-setup() {
   echo 'Starting regular database user, waiting for db to become ready';
   ${DEV_PATH}/${DEV_SELF} up "${host}";
   while true; do
-    ${DEV_PATH}/${DEV_SELF} logs "${host}" 2>&1 | grep 'port: 3306  Percona' > /dev/null && break;
+    ${DEV_PATH}/${DEV_SELF} logs "${host}" 2>&1 | grep 'port: 3306' > /dev/null && break;
     echo -n '.';
     sleep 1;
   done

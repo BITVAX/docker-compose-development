@@ -3,6 +3,8 @@ volumes:
     external: true
   dockerdev-workspace-volume:
     external: true
+  dockerdev-mariadb-volume:
+    external: true
 
 services:
   db:
@@ -15,6 +17,17 @@ services:
       - MYSQL_ROOT_PASSWORD
     ports:
       - 127.0.0.1:3306:3306
+
+  dbm:
+    container_name: dockerdev-dbm
+    image: mariadb
+    volumes:
+      - ./conf.d/mariadb/my.cnf:/etc/my.cnf.d/development.cnf:ro
+      - dockerdev-mariadb-volume:/var/lib/mysql:rw
+    environment:
+      - MARIADB_ROOT_PASSWORD
+    ports:
+      - 127.0.0.1:3307:3306
 
   mailcatch:
     image: mailhog/mailhog

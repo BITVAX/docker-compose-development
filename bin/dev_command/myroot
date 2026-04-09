@@ -10,7 +10,7 @@ if dc stopfile mysql8 >/dev/null; then
     dc cmd mysql "-hdb8 -uroot -p${MYSQL_ROOT_PASSWORD}";
 else
     dc yml build/dist/docker-compose-dbclient.yml;
-    dc cmd mysql "-hdb -uroot -p${MYSQL_ROOT_PASSWORD}";
+    dc cmd mysql "-hdbm -uroot -p${MYSQL_ROOT_PASSWORD}";
 fi
 
 dc run "$@";

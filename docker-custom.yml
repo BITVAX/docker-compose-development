@@ -1,0 +1,23 @@
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - MARIADB_ROOT_PASSWORD
+      - UPLOAD_LIMIT=100000000
+      - PMA_ARBITRARY=1
+    ports:
+      - 8080:80
+    volumes:
+      - ./conf/phpmyadmin.ini:/usr/local/etc/php/conf.d/phpmyadmin.ini
+      - ./conf/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+  php74:
+    volumes:
+      - ./conf/php_custom.ini:/usr/local/etc/php/conf.d/php_custom.ini
+  php81:
+    volumes:
+      - ./conf/php_custom.ini:/usr/local/etc/php/conf.d/php_custom.ini
+#    environment:
+#      - XDEBUG_MODE=debug
+#      - XDEBUG_SESSION=1
+#      - PHP_IDE_CONFIG=serverName=ccc.magento2.com

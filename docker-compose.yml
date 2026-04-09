@@ -20,7 +20,7 @@ services:
 
   dbm:
     container_name: dockerdev-dbm
-    image: mariadb
+    image: mariadb:10.6.22
     volumes:
       - ./conf.d/mariadb/my.cnf:/etc/my.cnf.d/development.cnf:ro
       - dockerdev-mariadb-volume:/var/lib/mysql:rw
